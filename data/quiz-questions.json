@@ -1,0 +1,237 @@
+{
+  "id": "hair-assessment-v1",
+  "title": "Hair Assessment",
+  "sections": [
+    {
+      "id": "about-you",
+      "title": "About You",
+      "icon": "User",
+      "description": "A few basics so we can calibrate your plan correctly.",
+      "questions": [
+        {
+          "id": "full_name",
+          "type": "text",
+          "title": "What should we call you?",
+          "placeholder": "Your first name",
+          "validation": { "required": true, "minLength": 2, "maxLength": 40 }
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "title": "What's the best number to reach you on?",
+          "subtitle": "We'll send your report here — no spam, ever.",
+          "placeholder": "98765 43210",
+          "validation": { "required": true, "pattern": "^[6-9]\\d{9}$", "patternMessage": "Enter a valid 10-digit mobile number" }
+        },
+        {
+          "id": "age",
+          "type": "number",
+          "title": "How old are you?",
+          "unit": "years",
+          "validation": { "required": true, "min": 13, "max": 90 }
+        },
+        {
+          "id": "gender",
+          "type": "radio",
+          "title": "What's your gender?",
+          "subtitle": "Hair loss patterns and causes differ by gender — this changes your whole report.",
+          "options": [
+            { "id": "male", "label": "Male" },
+            { "id": "female", "label": "Female" },
+            { "id": "other", "label": "Prefer to self-describe" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "pregnant_breastfeeding",
+          "type": "radio",
+          "title": "Are you currently pregnant or breastfeeding?",
+          "options": [
+            { "id": "yes", "label": "Yes" },
+            { "id": "no", "label": "No" }
+          ],
+          "showIf": { "questionId": "gender", "equalsAnyOf": ["female"] },
+          "validation": { "required": true }
+        }
+      ]
+    },
+    {
+      "id": "hair-health",
+      "title": "Hair Health",
+      "icon": "Sparkles",
+      "description": "Tell us what you're seeing day to day.",
+      "questions": [
+        {
+          "id": "hair_concern",
+          "type": "image-select",
+          "title": "What's your main hair concern?",
+          "options": [
+            { "id": "thinning", "label": "Thinning", "image": "TrendingDown" },
+            { "id": "receding", "label": "Receding hairline", "image": "ArrowUpRight" },
+            { "id": "patchy", "label": "Patchy hair loss", "image": "CircleDashed" },
+            { "id": "excess_shedding", "label": "Excess shedding", "image": "Wind" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "shedding_duration",
+          "type": "radio",
+          "title": "How long has this been going on?",
+          "options": [
+            { "id": "lt3m", "label": "Less than 3 months" },
+            { "id": "3to12m", "label": "3–12 months" },
+            { "id": "1to3y", "label": "1–3 years" },
+            { "id": "gt3y", "label": "More than 3 years" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "hairline_change",
+          "type": "radio",
+          "title": "Has your hairline visibly changed in the last year?",
+          "options": [
+            { "id": "yes_a_lot", "label": "Yes, noticeably" },
+            { "id": "yes_slightly", "label": "Slightly" },
+            { "id": "no", "label": "No change" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "family_history",
+          "type": "checkbox",
+          "title": "Does hair loss run in your family?",
+          "subtitle": "Select all that apply.",
+          "options": [
+            { "id": "mother_side", "label": "Mother's side" },
+            { "id": "father_side", "label": "Father's side" },
+            { "id": "siblings", "label": "Siblings" },
+            { "id": "none", "label": "No known family history" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "hair_photo",
+          "type": "image-upload",
+          "title": "Upload a photo of your scalp or hairline",
+          "subtitle": "Optional, but it sharpens your report significantly. Natural light, no filters.",
+          "validation": { "required": false }
+        }
+      ]
+    },
+    {
+      "id": "internal-health",
+      "title": "Internal Health",
+      "icon": "HeartPulse",
+      "description": "Hormones, nutrition, and stress are the most common root causes.",
+      "questions": [
+        {
+          "id": "stress_level",
+          "type": "radio",
+          "title": "How would you rate your stress levels lately?",
+          "options": [
+            { "id": "low", "label": "Low — generally calm" },
+            { "id": "moderate", "label": "Moderate — manageable" },
+            { "id": "high", "label": "High — frequently overwhelmed" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "diet_type",
+          "type": "radio",
+          "title": "How would you describe your diet?",
+          "options": [
+            { "id": "balanced", "label": "Balanced, varied" },
+            { "id": "vegetarian", "label": "Vegetarian" },
+            { "id": "vegan", "label": "Vegan" },
+            { "id": "restrictive", "label": "Restrictive / frequently skip meals" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "medical_conditions",
+          "type": "checkbox",
+          "title": "Have you been diagnosed with any of these?",
+          "subtitle": "Select all that apply — this directly shapes your plan.",
+          "options": [
+            { "id": "thyroid", "label": "Thyroid disorder" },
+            { "id": "pcos", "label": "PCOS / PCOD" },
+            { "id": "anemia", "label": "Iron deficiency / anemia" },
+            { "id": "none", "label": "None of these" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "thyroid_managed",
+          "type": "radio",
+          "title": "Is your thyroid condition currently medicated and stable?",
+          "options": [
+            { "id": "yes", "label": "Yes, stable" },
+            { "id": "unstable", "label": "Medicated but fluctuating" },
+            { "id": "unmedicated", "label": "Not currently medicated" }
+          ],
+          "showIf": { "questionId": "medical_conditions", "equalsAnyOf": ["thyroid"] },
+          "validation": { "required": true }
+        },
+        {
+          "id": "sleep_hours",
+          "type": "number",
+          "title": "On average, how many hours do you sleep?",
+          "unit": "hours / night",
+          "validation": { "required": true, "min": 2, "max": 14 }
+        }
+      ]
+    },
+    {
+      "id": "scalp-assessment",
+      "title": "Scalp Assessment",
+      "icon": "ScanFace",
+      "description": "Last section — the scalp is where every plan actually gets applied.",
+      "questions": [
+        {
+          "id": "scalp_type",
+          "type": "image-select",
+          "title": "How would you describe your scalp?",
+          "options": [
+            { "id": "oily", "label": "Oily", "image": "Droplets" },
+            { "id": "dry", "label": "Dry / flaky", "image": "Snowflake" },
+            { "id": "sensitive", "label": "Sensitive / itchy", "image": "AlertCircle" },
+            { "id": "normal", "label": "Normal", "image": "CheckCircle2" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "wash_frequency",
+          "type": "radio",
+          "title": "How often do you wash your hair?",
+          "options": [
+            { "id": "daily", "label": "Daily" },
+            { "id": "alternate", "label": "Every other day" },
+            { "id": "twice_week", "label": "2–3 times a week" },
+            { "id": "rarely", "label": "Once a week or less" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "chemical_treatments",
+          "type": "checkbox",
+          "title": "Any chemical treatments in the last year?",
+          "options": [
+            { "id": "coloring", "label": "Hair coloring" },
+            { "id": "straightening", "label": "Straightening / smoothing" },
+            { "id": "perming", "label": "Perming" },
+            { "id": "none", "label": "None" }
+          ],
+          "validation": { "required": true }
+        },
+        {
+          "id": "additional_notes",
+          "type": "text",
+          "title": "Anything else your hair coach should know?",
+          "subtitle": "Optional — products you've tried, allergies, anything specific.",
+          "placeholder": "Type here...",
+          "validation": { "required": false, "maxLength": 300 }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THRIVEROOTS DESIGN SYSTEM
+   A premium hair-therapy product. Editorial warmth + clinical
+   precision. Deep pine green, warm paper background, a single
+   terracotta accent reserved for "results" moments only.
+   ============================================================ */
+
+:root {
+  /* ---- Color: Core Palette ---- */
+  --color-pine-950: #0a2a20;
+  --color-pine-900: #0f3d2e;   /* primary */
+  --color-pine-700: #15543f;
+  --color-pine-500: #1b6e4a;   /* active / interactive green */
+  --color-pine-300: #6fa98a;
+  --color-pine-100: #dcebe2;
+  --color-pine-50:  #eef5f0;
+
+  --color-paper:    #f7f5ef;   /* warm white background */
+  --color-paper-dim:#efece2;
+  --color-surface:  #ffffff;
+
+  --color-ink-900:  #1a1a18;   /* charcoal text */
+  --color-ink-700:  #3a3833;
+  --color-ink-500:  #6b6862;   /* muted gray */
+  --color-ink-300:  #9c9a93;
+  --color-ink-100:  #e4e2da;
+
+  --color-terracotta-700: #a85f34;
+  --color-terracotta-500: #c97b4a;  /* sparing accent */
+  --color-terracotta-100: #f3e3d6;
+
+  --color-success: #1b6e4a;
+  --color-warning: #b9802a;
+  --color-danger:  #b3402f;
+  --color-info:    #2e6e8e;
+
+  /* ---- Typography ----
+     Local stacks standing in for next/font/google(Fraunces + Inter),
+     which this sandbox can't fetch. The serif stack approximates
+     Fraunces' warm, slightly editorial character; swap for the real
+     webfonts on deploy (see app/layout.tsx). */
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Type scale (1.25 ratio, capped for editorial display sizes) */
+  --text-caption: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 2.875rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ---- Section / container rhythm ---- */
+  --section-py: clamp(4rem, 8vw, 7rem);
+  --section-py-sm: clamp(2.5rem, 5vw, 4rem);
+  --container-max: 1216px;
+  --container-narrow: 760px;
+  --container-px: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 999px;
+
+  /* ---- Elevation (soft, professional — no harsh drop shadows) ---- */
+  --shadow-xs: 0 1px 2px rgba(26, 26, 24, 0.04);
+  --shadow-sm: 0 2px 6px rgba(26, 26, 24, 0.05), 0 1px 2px rgba(26, 26, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 61, 46, 0.08), 0 2px 6px rgba(26, 26, 24, 0.05);
+  --shadow-lg: 0 20px 48px rgba(15, 61, 46, 0.12), 0 4px 12px rgba(26, 26, 24, 0.06);
+  --shadow-glow-pine: 0 0 0 4px rgba(27, 110, 74, 0.12);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-base: 280ms;
+  --dur-slow: 480ms;
+}
+
+@theme inline {
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink-900);
+
+  --color-pine-950: var(--color-pine-950);
+  --color-pine-900: var(--color-pine-900);
+  --color-pine-700: var(--color-pine-700);
+  --color-pine-500: var(--color-pine-500);
+  --color-pine-300: var(--color-pine-300);
+  --color-pine-100: var(--color-pine-100);
+  --color-pine-50: var(--color-pine-50);
+
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-surface: var(--color-surface);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-500: var(--color-ink-500);
+  --color-ink-300: var(--color-ink-300);
+  --color-ink-100: var(--color-ink-100);
+
+  --color-terracotta-700: var(--color-terracotta-700);
+  --color-terracotta-500: var(--color-terracotta-500);
+  --color-terracotta-100: var(--color-terracotta-100);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-info: var(--color-info);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --breakpoint-xs: 420px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+}
+
+* {
+  border-color: var(--color-ink-100);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink-900);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01" 1, "cv01" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-pine-100);
+  color: var(--color-pine-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pine-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   REUSABLE UTILITY LAYER
+   ============================================================ */
+@layer components {
+  /* --- Layout --- */
+  .container-base {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+  }
+  .container-narrow {
+    width: 100%;
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+  }
+  .section {
+    padding-block: var(--section-py);
+  }
+  .section-sm {
+    padding-block: var(--section-py-sm);
+  }
+
+  /* --- Typography --- */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-pine-700);
+  }
+  .h-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--color-ink-900);
+  }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-ink-900);
+  }
+  .body-lead {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    color: var(--color-ink-700);
+  }
+  .body-base {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--color-ink-700);
+  }
+  .caption {
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    color: var(--color-ink-500);
+  }
+
+  /* --- Buttons --- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    transition: transform var(--dur-fast) var(--ease-out),
+                background-color var(--dur-base) var(--ease-out),
+                box-shadow var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    background: var(--color-pine-900);
+    color: var(--color-paper);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-primary:hover {
+    background: var(--color-pine-700);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:focus-visible {
+    box-shadow: var(--shadow-glow-pine);
+  }
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-pine-900);
+    border: 1px solid var(--color-ink-100);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-pine-500);
+    background: var(--color-pine-50);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink-700);
+    padding-inline: 0.75rem;
+  }
+  .btn-ghost:hover {
+    color: var(--color-pine-900);
+    background: var(--color-pine-50);
+  }
+  .btn-lg {
+    padding: 0.9rem 2rem;
+    font-size: var(--text-base);
+    border-radius: var(--radius-lg);
+  }
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--text-caption);
+    border-radius: var(--radius-sm);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* --- Inputs --- */
+  .input-base {
+    width: 100%;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-ink-100);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1rem;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-ink-900);
+    transition: border-color var(--dur-base) var(--ease-out),
+                box-shadow var(--dur-base) var(--ease-out);
+  }
+  .input-base::placeholder {
+    color: var(--color-ink-300);
+  }
+  .input-base:hover {
+    border-color: var(--color-ink-300);
+  }
+  .input-base:focus {
+    outline: none;
+    border-color: var(--color-pine-500);
+    box-shadow: var(--shadow-glow-pine);
+  }
+  .input-error {
+    border-color: var(--color-danger);
+  }
+  .input-error:focus {
+    box-shadow: 0 0 0 4px rgba(179, 64, 47, 0.12);
+  }
+  .input-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-ink-900);
+    margin-bottom: 0.5rem;
+  }
+  .input-hint {
+    font-size: var(--text-caption);
+    color: var(--color-ink-500);
+    margin-top: 0.4rem;
+  }
+  .input-error-text {
+    font-size: var(--text-caption);
+    color: var(--color-danger);
+    margin-top: 0.4rem;
+  }
+
+  /* --- Cards --- */
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-ink-100);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--dur-base) var(--ease-out),
+                transform var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out);
+  }
+  .card-interactive:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    border-color: var(--color-pine-100);
+  }
+  .card-flat {
+    background: var(--color-pine-50);
+    border: 1px solid var(--color-pine-100);
+    border-radius: var(--radius-lg);
+  }
+
+  /* --- Badges --- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+    line-height: 1;
+  }
+  .badge-pine {
+    background: var(--color-pine-100);
+    color: var(--color-pine-900);
+  }
+  .badge-terracotta {
+    background: var(--color-terracotta-100);
+    color: var(--color-terracotta-700);
+  }
+  .badge-neutral {
+    background: var(--color-ink-100);
+    color: var(--color-ink-700);
+  }
+  .badge-outline {
+    background: transparent;
+    border: 1px solid var(--color-ink-100);
+    color: var(--color-ink-700);
+  }
+
+  /* --- Alerts --- */
+  .alert {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-radius: var(--radius-md);
+    padding: 1rem 1.1rem;
+    font-size: var(--text-sm);
+    border: 1px solid transparent;
+  }
+  .alert-info {
+    background: #eaf3f7;
+    border-color: #cfe5ed;
+    color: #224e62;
+  }
+  .alert-success {
+    background: var(--color-pine-50);
+    border-color: var(--color-pine-100);
+    color: var(--color-pine-900);
+  }
+  .alert-warning {
+    background: #fbf1e0;
+    border-color: #f0ddb6;
+    color: #7a5419;
+  }
+  .alert-danger {
+    background: #f9e9e6;
+    border-color: #f0cdc6;
+    color: #7d2c1f;
+  }
+
+  /* --- Dividers / skeletons --- */
+  .hairline {
+    height: 1px;
+    background: var(--color-ink-100);
+    border: none;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-ink-100) 25%, var(--color-paper-dim) 37%, var(--color-ink-100) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+    border-radius: var(--radius-sm);
+  }
+  @keyframes skeleton-loading {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+  }
+}
