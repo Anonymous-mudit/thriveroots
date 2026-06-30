@@ -51,7 +51,11 @@ export function Hero() {
           <motion.p variants={fadeUp} className="body-lead mt-6 max-w-lg">
             Hormones, nutrition, stress, and scalp health — most hair-care
             brands guess. ThriveRoots starts with a clinical-grade assessment,
+<<<<<<< HEAD
             then builds a therapy plan around what&apos;s actually causing your
+=======
+            then builds a therapy plan around what's actually causing your
+>>>>>>> 4c82cb9ea2c217ed48433186c0656b13b3387667
             shedding.
           </motion.p>
 
@@ -59,6 +63,10 @@ export function Hero() {
             variants={fadeUp}
             className="mt-8 flex flex-col sm:flex-row gap-3"
           >
+<<<<<<< HEAD
+=======
+            {/* Assessment Button */}
+>>>>>>> 4c82cb9ea2c217ed48433186c0656b13b3387667
             <Link href="/quiz">
               <Button size="lg" className="group cursor-pointer">
                 Start free hair assessment
@@ -69,6 +77,10 @@ export function Hero() {
               </Button>
             </Link>
 
+<<<<<<< HEAD
+=======
+            {/* Scroll to Process */}
+>>>>>>> 4c82cb9ea2c217ed48433186c0656b13b3387667
             <a href="#process">
               <Button
                 variant="secondary"
@@ -109,7 +121,13 @@ export function Hero() {
                   Hair Score: Improving
                 </p>
 
+<<<<<<< HEAD
                 <p className="caption">+14 points since month 1</p>
+=======
+                <p className="caption">
+                  +14 points since month 1
+                </p>
+>>>>>>> 4c82cb9ea2c217ed48433186c0656b13b3387667
               </div>
             </div>
           </div>
