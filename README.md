@@ -201,7 +201,7 @@ GitHub: *https://github.com/Anonymous-mudit*
 
 LinkedIn: *linkedin.com/in/mudit-bhardwaj/*
 
-Versal : 
+Vercel : *thriveroots.vercel.app* 
 
 Portfolio: *(Coming Soon)*
 
