@@ -199,9 +199,9 @@ The project was built with the following principles:
 
 GitHub: *https://github.com/Anonymous-mudit*
 
-LinkedIn: *linkedin.com/in/mudit-bhardwaj/*
+LinkedIn: linkedin.com/in/mudit-bhardwaj/
 
-Vercel : *thriveroots.vercel.app* 
+Vercel : thriveroots.vercel.app
 
 Portfolio: *(Coming Soon)*
 
